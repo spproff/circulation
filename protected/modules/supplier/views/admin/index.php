@@ -10,15 +10,15 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('supplier')->getCategory() => array(),
-        Yii::t('supplier', 'Постащики') => array('/admin/index'),
+        Yii::t('supplier', 'Постащики') => array('/supplier/admin/index'),
         Yii::t('supplier', 'Управление'),
     );
 
     $this->pageTitle = Yii::t('supplier', 'Постащики - управление');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('supplier', 'Управление Поставщиками'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('supplier', 'Добавить Поставщика'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('supplier', 'Управление Поставщиками'), 'url' => array('/supplier/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('supplier', 'Добавить Поставщика'), 'url' => array('/supplier/admin/create')),
     );
 ?>
 <div class="page-header">

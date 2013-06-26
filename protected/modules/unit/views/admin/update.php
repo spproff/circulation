@@ -10,27 +10,27 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('unit')->getCategory() => array(),
-        Yii::t('unit', 'Единицы') => array('/admin/index'),
-        $model->id => array('/admin/view', 'id' => $model->id),
+        Yii::t('unit', 'Единицы') => array('/unit/admin/index'),
+        $model->id => array('/unit/admin/view', 'id' => $model->id),
         Yii::t('unit', 'Редактирование'),
     );
 
     $this->pageTitle = Yii::t('unit', 'Единицы - редактирование');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('unit', 'Управление Единицами'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('unit', 'Добавить Единицу'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('unit', 'Управление Единицами'), 'url' => array('/unit/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('unit', 'Добавить Единицу'), 'url' => array('/unit/admin/create')),
         array('label' => Yii::t('unit', 'Единица') . ' «' . mb_substr($model->id, 0, 32) . '»'),
         array('icon' => 'pencil', 'label' => Yii::t('unit', 'Редактирование Единицы'), 'url' => array(
-            '/admin/update',
+            '/unit/admin/update',
             'id' => $model->id
         )),
         array('icon' => 'eye-open', 'label' => Yii::t('unit', 'Просмотреть Единицу'), 'url' => array(
-            '/admin/view',
+            '/unit/admin/view',
             'id' => $model->id
         )),
         array('icon' => 'trash', 'label' => Yii::t('unit', 'Удалить Единицу'), 'url' => '#', 'linkOptions' => array(
-            'submit' => array('/admin/delete', 'id' => $model->id),
+            'submit' => array('/unit/admin/delete', 'id' => $model->id),
             'confirm' => Yii::t('unit', 'Вы уверены, что хотите удалить Единицу?'),
         )),
     );

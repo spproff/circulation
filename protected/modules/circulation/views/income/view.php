@@ -10,26 +10,26 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('circulation')->getCategory() => array(),
-        Yii::t('circulation', 'Приходы') => array('/income/index'),
+        Yii::t('circulation', 'Приходы') => array('/circulation/income/index'),
         $model->id,
     );
 
     $this->pageTitle = Yii::t('circulation', 'Приходы - просмотр');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('circulation', 'Управление Приходами'), 'url' => array('/income/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('circulation', 'Добавить Приход'), 'url' => array('/income/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('circulation', 'Управление Приходами'), 'url' => array('/circulation/income/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('circulation', 'Добавить Приход'), 'url' => array('/circulation/income/create')),
         array('label' => Yii::t('circulation', 'Приход') . ' «' . mb_substr($model->id, 0, 32) . '»'),
         array('icon' => 'pencil', 'label' => Yii::t('circulation', 'Редактирование Прихода'), 'url' => array(
-            '/income/update',
+            '/circulation/income/update',
             'id' => $model->id
         )),
         array('icon' => 'eye-open', 'label' => Yii::t('circulation', 'Просмотреть Приход'), 'url' => array(
-            '/income/view',
+            '/circulation/income/view',
             'id' => $model->id
         )),
         array('icon' => 'trash', 'label' => Yii::t('circulation', 'Удалить Приход'), 'url' => '#', 'linkOptions' => array(
-            'submit' => array('/income/delete', 'id' => $model->id),
+            'submit' => array('/circulation/income/delete', 'id' => $model->id),
             'confirm' => Yii::t('circulation', 'Вы уверены, что хотите удалить Приход?'),
         )),
     );

@@ -10,15 +10,15 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('unit')->getCategory() => array(),
-        Yii::t('unit', 'Единицы') => array('/admin/index'),
+        Yii::t('unit', 'Единицы') => array('/unit/admin/index'),
         Yii::t('unit', 'Управление'),
     );
 
     $this->pageTitle = Yii::t('unit', 'Единицы - управление');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('unit', 'Управление Единицами'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('unit', 'Добавить Единицу'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('unit', 'Управление Единицами'), 'url' => array('/unit/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('unit', 'Добавить Единицу'), 'url' => array('/unit/admin/create')),
     );
 ?>
 <div class="page-header">

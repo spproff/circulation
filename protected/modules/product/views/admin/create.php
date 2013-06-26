@@ -10,15 +10,15 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('product')->getCategory() => array(),
-        Yii::t('product', 'Товары') => array('/admin/index'),
+        Yii::t('product', 'Товары') => array('/product/admin/index'),
         Yii::t('product', 'Добавление'),
     );
 
     $this->pageTitle = Yii::t('product', 'Товары - добавление');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('product', 'Управление Товарами'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('product', 'Добавить Товар'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('product', 'Управление Товарами'), 'url' => array('/product/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('product', 'Добавить Товар'), 'url' => array('/product/admin/create')),
     );
 ?>
 <div class="page-header">

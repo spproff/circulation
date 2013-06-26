@@ -10,15 +10,15 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('tag')->getCategory() => array(),
-        Yii::t('tag', 'Теги') => array('/admin/index'),
+        Yii::t('tag', 'Теги') => array('/tag/admin/index'),
         Yii::t('tag', 'Добавление'),
     );
 
     $this->pageTitle = Yii::t('tag', 'Теги - добавление');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('tag', 'Управление Тегами'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('tag', 'Добавить Тег'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('tag', 'Управление Тегами'), 'url' => array('/tag/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('tag', 'Добавить Тег'), 'url' => array('/tag/admin/create')),
     );
 ?>
 <div class="page-header">

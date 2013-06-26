@@ -10,26 +10,26 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('circulation')->getCategory() => array(),
-        Yii::t('circulation', 'Расходы') => array('/outcome/index'),
+        Yii::t('circulation', 'Расходы') => array('/circulation/outcome/index'),
         $model->id,
     );
 
     $this->pageTitle = Yii::t('circulation', 'Расходы - просмотр');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('circulation', 'Управление Расходами'), 'url' => array('/outcome/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('circulation', 'Добавить Расход'), 'url' => array('/outcome/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('circulation', 'Управление Расходами'), 'url' => array('/circulation/outcome/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('circulation', 'Добавить Расход'), 'url' => array('/circulation/outcome/create')),
         array('label' => Yii::t('circulation', 'Расход') . ' «' . mb_substr($model->id, 0, 32) . '»'),
         array('icon' => 'pencil', 'label' => Yii::t('circulation', 'Редактирование Расхода'), 'url' => array(
-            '/outcome/update',
+            '/circulation/outcome/update',
             'id' => $model->id
         )),
         array('icon' => 'eye-open', 'label' => Yii::t('circulation', 'Просмотреть Расход'), 'url' => array(
-            '/outcome/view',
+            '/circulation/outcome/view',
             'id' => $model->id
         )),
         array('icon' => 'trash', 'label' => Yii::t('circulation', 'Удалить Расход'), 'url' => '#', 'linkOptions' => array(
-            'submit' => array('/outcome/delete', 'id' => $model->id),
+            'submit' => array('/circulation/outcome/delete', 'id' => $model->id),
             'confirm' => Yii::t('circulation', 'Вы уверены, что хотите удалить Расход?'),
         )),
     );

@@ -10,26 +10,26 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('supplier')->getCategory() => array(),
-        Yii::t('supplier', 'Постащики') => array('/admin/index'),
+        Yii::t('supplier', 'Постащики') => array('/supplier/admin/index'),
         $model->id,
     );
 
     $this->pageTitle = Yii::t('supplier', 'Постащики - просмотр');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('supplier', 'Управление Поставщиками'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('supplier', 'Добавить Поставщика'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('supplier', 'Управление Поставщиками'), 'url' => array('/supplier/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('supplier', 'Добавить Поставщика'), 'url' => array('/supplier/admin/create')),
         array('label' => Yii::t('supplier', 'Поставщик') . ' «' . mb_substr($model->id, 0, 32) . '»'),
         array('icon' => 'pencil', 'label' => Yii::t('supplier', 'Редактирование Поставшика'), 'url' => array(
-            '/admin/update',
+            '/supplier/admin/update',
             'id' => $model->id
         )),
         array('icon' => 'eye-open', 'label' => Yii::t('supplier', 'Просмотреть Поставщика'), 'url' => array(
-            '/admin/view',
+            '/supplier/admin/view',
             'id' => $model->id
         )),
         array('icon' => 'trash', 'label' => Yii::t('supplier', 'Удалить Поставщика'), 'url' => '#', 'linkOptions' => array(
-            'submit' => array('/admin/delete', 'id' => $model->id),
+            'submit' => array('/supplier/admin/delete', 'id' => $model->id),
             'confirm' => Yii::t('supplier', 'Вы уверены, что хотите удалить Поставщика?'),
         )),
     );

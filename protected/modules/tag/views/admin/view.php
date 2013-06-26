@@ -10,26 +10,26 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('tag')->getCategory() => array(),
-        Yii::t('tag', 'Теги') => array('/admin/index'),
+        Yii::t('tag', 'Теги') => array('/tag/admin/index'),
         $model->id,
     );
 
     $this->pageTitle = Yii::t('tag', 'Теги - просмотр');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('tag', 'Управление Тегами'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('tag', 'Добавить Тег'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('tag', 'Управление Тегами'), 'url' => array('/tag/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('tag', 'Добавить Тег'), 'url' => array('/tag/admin/create')),
         array('label' => Yii::t('tag', 'Тег') . ' «' . mb_substr($model->id, 0, 32) . '»'),
         array('icon' => 'pencil', 'label' => Yii::t('tag', 'Редактирование Тега'), 'url' => array(
-            '/admin/update',
+            '/tag/admin/update',
             'id' => $model->id
         )),
         array('icon' => 'eye-open', 'label' => Yii::t('tag', 'Просмотреть Тег'), 'url' => array(
-            '/admin/view',
+            '/tag/admin/view',
             'id' => $model->id
         )),
         array('icon' => 'trash', 'label' => Yii::t('tag', 'Удалить Тег'), 'url' => '#', 'linkOptions' => array(
-            'submit' => array('/admin/delete', 'id' => $model->id),
+            'submit' => array('/tag/admin/delete', 'id' => $model->id),
             'confirm' => Yii::t('tag', 'Вы уверены, что хотите удалить Тег?'),
         )),
     );

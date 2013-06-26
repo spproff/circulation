@@ -10,6 +10,7 @@
  * @property string $phone
  * @property string $email
  * @property string $address
+ * @property string $url
  */
 class Supplier extends YModel
 {
@@ -42,10 +43,10 @@ class Supplier extends YModel
 			array('label', 'length', 'max'=>255),
 			array('phone', 'length', 'max'=>30),
 			array('email', 'length', 'max'=>50),
-			array('description, address', 'safe'),
+			array('description, address, url', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, label, description, phone, email, address', 'safe', 'on'=>'search'),
+			array('id, label, description, phone, email, address, url', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,6 +73,7 @@ class Supplier extends YModel
 			'phone' => 'Phone',
 			'email' => 'Email',
 			'address' => 'Address',
+			'url' => 'Url',
 		);
 	}
 
@@ -92,6 +94,7 @@ class Supplier extends YModel
 		$criteria->compare('phone',$this->phone,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('address',$this->address,true);
+		$criteria->compare('url',$this->url,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

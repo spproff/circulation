@@ -10,27 +10,27 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('product')->getCategory() => array(),
-        Yii::t('product', 'Товары') => array('/admin/index'),
-        $model->id => array('/admin/view', 'id' => $model->id),
+        Yii::t('product', 'Товары') => array('/product/admin/index'),
+        $model->id => array('/product/admin/view', 'id' => $model->id),
         Yii::t('product', 'Редактирование'),
     );
 
     $this->pageTitle = Yii::t('product', 'Товары - редактирование');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('product', 'Управление Товарами'), 'url' => array('/admin/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('product', 'Добавить Товар'), 'url' => array('/admin/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('product', 'Управление Товарами'), 'url' => array('/product/admin/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('product', 'Добавить Товар'), 'url' => array('/product/admin/create')),
         array('label' => Yii::t('product', 'Товар') . ' «' . mb_substr($model->id, 0, 32) . '»'),
         array('icon' => 'pencil', 'label' => Yii::t('product', 'Редактирование Товара'), 'url' => array(
-            '/admin/update',
+            '/product/admin/update',
             'id' => $model->id
         )),
         array('icon' => 'eye-open', 'label' => Yii::t('product', 'Просмотреть Товар'), 'url' => array(
-            '/admin/view',
+            '/product/admin/view',
             'id' => $model->id
         )),
         array('icon' => 'trash', 'label' => Yii::t('product', 'Удалить Товар'), 'url' => '#', 'linkOptions' => array(
-            'submit' => array('/admin/delete', 'id' => $model->id),
+            'submit' => array('/product/admin/delete', 'id' => $model->id),
             'confirm' => Yii::t('product', 'Вы уверены, что хотите удалить Товар?'),
         )),
     );

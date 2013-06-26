@@ -40,6 +40,9 @@ $form = $this->beginWidget(
     <div class="row-fluid control-group <?php echo $model->hasErrors('email') ? 'error' : ''; ?>">
         <?php echo $form->textFieldRow($model, 'email', array('class' => 'span3 popover-help', 'size' => 60, 'maxlength' => 50, 'data-original-title' => $model->getAttributeLabel('email'), 'data-content' => $model->getAttributeDescription('email'))); ?>
     </div>
+	<div class="row-fluid control-group <?php echo $model->hasErrors('url') ? 'error' : ''; ?>">
+        <?php echo $form->textFieldRow($model, 'url', array('class' => 'span3 popover-help', 'size' => 60, 'maxlength' => 50, 'data-original-title' => $model->getAttributeLabel('url'), 'data-content' => $model->getAttributeDescription('url'))); ?>
+    </div>
     <div class="row-fluid control-group <?php echo $model->hasErrors('address') ? 'error' : ''; ?>">
         <?php echo $form->textAreaRow($model, 'address', array('class' => 'span5 popover-help', 'rows' => 6, 'cols' => 50, 'data-original-title' => $model->getAttributeLabel('address'), 'data-content' => $model->getAttributeDescription('address'))); ?>
     </div>

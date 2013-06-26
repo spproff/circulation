@@ -10,15 +10,15 @@
  **/
     $this->breadcrumbs = array(
         Yii::app()->getModule('circulation')->getCategory() => array(),
-        Yii::t('circulation', 'Приходы') => array('/income/index'),
+        Yii::t('circulation', 'Приходы') => array('/circulation/income/index'),
         Yii::t('circulation', 'Управление'),
     );
 
     $this->pageTitle = Yii::t('circulation', 'Приходы - управление');
 
     $this->menu = array(
-        array('icon' => 'list-alt', 'label' => Yii::t('circulation', 'Управление Приходами'), 'url' => array('/income/index')),
-        array('icon' => 'plus-sign', 'label' => Yii::t('circulation', 'Добавить Приход'), 'url' => array('/income/create')),
+        array('icon' => 'list-alt', 'label' => Yii::t('circulation', 'Управление Приходами'), 'url' => array('/circulation/income/index')),
+        array('icon' => 'plus-sign', 'label' => Yii::t('circulation', 'Добавить Приход'), 'url' => array('/circulation/income/create')),
     );
 ?>
 <div class="page-header">
