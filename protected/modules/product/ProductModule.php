@@ -1,6 +1,6 @@
 <?php
 
-class ProductModule extends CWebModule
+class ProductModule extends YWebModule
 {
 	public function init()
 	{

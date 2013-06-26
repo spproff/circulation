@@ -1,6 +1,6 @@
 <?php
 
-class TagModule extends CWebModule
+class TagModule extends YWebModule
 {
 	public function init()
 	{

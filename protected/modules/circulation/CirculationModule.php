@@ -1,6 +1,6 @@
 <?php
 
-class CirculationModule extends CWebModule
+class CirculationModule extends YWebModule
 {
 	public function init()
 	{
