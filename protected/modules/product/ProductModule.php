@@ -2,6 +2,14 @@
 
 class ProductModule extends YWebModule
 {
+	
+	public $adminPageLinkNormalize = '/product/admin/index/';
+	
+	public function getIcon()
+    {
+        return 'folder-open';
+    }
+	
 	public function init()
 	{
 		// this method is called when the module is being created

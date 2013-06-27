@@ -14,11 +14,8 @@
  */
 class Product extends YModel
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return Product the static model class
-	 */
+	public $tags;
+	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -42,21 +39,28 @@ class Product extends YModel
 		return array(
 			array('supplier_id, unit', 'numerical', 'integerOnly'=>true),
 			array('label', 'length', 'max'=>255),
-			array('description, images, url', 'safe'),
+			array('article', 'length', 'max'=>64),
+			array('description, images, url, tags', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, label, description, images, supplier_id, unit, url', 'safe', 'on'=>'search'),
+			array('id, label, description, images, supplier_id, unit, url, article', 'safe', 'on'=>'search'),
 		);
 	}
 
-	/**
-	 * @return array relational rules.
-	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
+			'tag'=>array(self::MANY_MANY, 'Tag',
+				'calc_tag_product(product_id, tag_id)'),
+		);
+	}
+	
+	public function behaviors()
+	{
+		return array(
+			'withRelated'=>array(
+				'class'=>'application.components.WithRelatedBehavior',
+			),
 		);
 	}
 
@@ -72,6 +76,7 @@ class Product extends YModel
 			'images' => 'Images',
 			'supplier_id' => 'Supplier',
 			'unit' => 'Unit',
+			'article' => 'Article',
 			'url' => 'Url',
 		);
 	}
@@ -93,10 +98,33 @@ class Product extends YModel
 		$criteria->compare('images',$this->images,true);
 		$criteria->compare('supplier_id',$this->supplier_id);
 		$criteria->compare('unit',$this->unit);
+		$criteria->compare('article',$this->article);
 		$criteria->compare('url',$this->url,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	
+	public function beforeRelatedSave() {
+		if ($this->id)
+			Yii::app()->db->createCommand()
+				->delete(	'calc_tag_product', 
+							'product_id=:id', 
+							array(':id'=>$this->id));
+		return parent::beforeSave();
+	}
+	
+	public function save($runValidation=true,$attributes=null) {
+		if ($this->tags) {
+			$this->beforeRelatedSave();
+			$criteria = new CDbCriteria();
+			$criteria->addInCondition('id', $this->tags);
+			$tags = Tag::model()->findAll($criteria);
+			$this->tags = $tags;
+			$this->withRelated->save($runValidation, array('tag'));
+		} else {
+			parent::save($runValidation,$attributes);
+		}
 	}
 }

@@ -30,6 +30,8 @@ if (strpos($_SERVER['SERVER_ADDR'], '127') === 0) {
     // путь к основному конфигурационному файлу Yii
     $config = dirname(__FILE__) . '/protected/config/main.php';
 }
-
+error_reporting(E_ALL|E_STRICT|E_WARNING);
+ini_set('display_errors', true);
+ob_start("ob_gzhandler", 7);
 require $yii;
 Yii::createWebApplication($config)->run();

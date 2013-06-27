@@ -57,9 +57,23 @@ $form = $this->beginWidget(
     <div class="row-fluid control-group <?php echo $model->hasErrors('url') ? 'error' : ''; ?>">
         <?php echo $form->textFieldRow($model, 'url', array('class' => 'span3 popover-help', 'data-original-title' => $model->getAttributeLabel('url'), 'data-content' => $model->getAttributeDescription('url'))); ?>
     </div>
+    <div class="row-fluid control-group <?php echo $model->hasErrors('article') ? 'error' : ''; ?>">
+        <?php echo $form->textFieldRow($model, 'article', array('class' => 'span3 popover-help', 'data-original-title' => $model->getAttributeLabel('article'), 'data-content' => $model->getAttributeDescription('article'))); ?>
+    </div>
 	<div class="row-fluid control-group <?php echo $model->hasErrors('description') ? 'error' : ''; ?>">
         <?php echo $form->textAreaRow($model, 'description', array('class' => 'span5 popover-help', 'rows' => 6, 'cols' => 50, 'data-original-title' => $model->getAttributeLabel('description'), 'data-content' => $model->getAttributeDescription('description'))); ?>
     </div>
+    
+    <div class="row-fluid control-group ">
+	    <?php echo $form->labelEx($model, 'tags', array('class'=>'control-label')); ?>
+	    <?php $this->widget('application.modules.tag.widgets.TagFormWidget', array(
+	    			'model' => $model,
+	    			'attribute' => 'tags',
+	    		));
+	    ?>
+	    <?php echo $form->error($model, 'work_types'); ?>
+	</div>
+    
     <?php
     $this->widget(
         'bootstrap.widgets.TbButton', array(
