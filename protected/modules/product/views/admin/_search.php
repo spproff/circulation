@@ -30,12 +30,6 @@ $form = $this->beginWidget(
                 <?php echo $form->textAreaRow($model, 'description', array('class' => 'span5 popover-help', 'rows' => 6, 'cols' => 50, 'data-original-title' => $model->getAttributeLabel('description'), 'data-content' => $model->getAttributeDescription('description'))); ?>
             </div>
             <div class="span2">
-                <?php echo $form->textAreaRow($model, 'images', array('class' => 'span5 popover-help', 'rows' => 6, 'cols' => 50, 'data-original-title' => $model->getAttributeLabel('images'), 'data-content' => $model->getAttributeDescription('images'))); ?>
-            </div>
-            <div class="span2">
-                <?php echo $form->textFieldRow($model, 'supplier_id', array('class' => 'span3 popover-help', 'size' => 60, 'maxlength' => 60, 'data-original-title' => $model->getAttributeLabel('supplier_id'), 'data-content' => $model->getAttributeDescription('supplier_id'))); ?>
-            </div>
-            <div class="span2">
                 <?php echo $form->textFieldRow($model, 'unit', array('class' => 'span3 popover-help', 'size' => 60, 'maxlength' => 60, 'data-original-title' => $model->getAttributeLabel('unit'), 'data-content' => $model->getAttributeDescription('unit'))); ?>
             </div>
             <div class="span2">

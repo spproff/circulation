@@ -118,7 +118,7 @@ class IncomeController extends YBackController
      *
      * @return nothing
      */
-    public function actionIndex()
+    public function actionIndex($product_id)
     {
         $model = new Income('search');
         $model->unsetAttributes(); // clear any default values

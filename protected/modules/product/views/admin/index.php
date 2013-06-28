@@ -60,12 +60,11 @@ $this->renderPartial('_search', array('model' => $model));
     'dataProvider' => $model->search(),
     'filter'       => $model,
     'columns'      => array(
-        'id',
+        //'id',
+ 		'article',
         'label',
-        'description',
-        'images',
-        'supplier_id',
-        'unit',
+        //'description',
+        //'unit',
         /*
         'url',
         */

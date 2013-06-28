@@ -8,7 +8,6 @@
  * @property string $label
  * @property string $description
  * @property string $images
- * @property integer $supplier_id
  * @property integer $unit
  * @property string $url
  */
@@ -37,13 +36,13 @@ class Product extends YModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('supplier_id, unit', 'numerical', 'integerOnly'=>true),
+			array('unit', 'numerical', 'integerOnly'=>true),
 			array('label', 'length', 'max'=>255),
 			array('article', 'length', 'max'=>64),
-			array('description, images, url, tags', 'safe'),
+			array('description, url, tags', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, label, description, images, supplier_id, unit, url, article', 'safe', 'on'=>'search'),
+			array('id, label, description, unit, url, article', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,8 +72,6 @@ class Product extends YModel
 			'id' => 'ID',
 			'label' => 'Label',
 			'description' => 'Description',
-			'images' => 'Images',
-			'supplier_id' => 'Supplier',
 			'unit' => 'Unit',
 			'article' => 'Article',
 			'url' => 'Url',
@@ -95,8 +92,6 @@ class Product extends YModel
 		$criteria->compare('id',$this->id);
 		$criteria->compare('label',$this->label,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('images',$this->images,true);
-		$criteria->compare('supplier_id',$this->supplier_id);
 		$criteria->compare('unit',$this->unit);
 		$criteria->compare('article',$this->article);
 		$criteria->compare('url',$this->url,true);
