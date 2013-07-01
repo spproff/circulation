@@ -53,6 +53,13 @@
 			    </div>
 			    <div class="row-fluid control-group <?php echo $model->hasErrors('url') ? 'error' : ''; ?>">
 			        <?php echo $form->textFieldRow($model, 'url', array('class' => 'span12 popover-help', 'data-original-title' => $model->getAttributeLabel('url'), 'data-content' => $model->getAttributeDescription('url'))); ?>
+			        <?php
+					    $this->widget(
+					        'application.modules.product.widgets.ParseButtonWidget', array(
+					            'model' => $model,
+					        )
+					    ); 
+					?>
 			    </div>
 			    <div class="row-fluid control-group <?php echo $model->hasErrors('article') ? 'error' : ''; ?>">
 			        <?php echo $form->textFieldRow($model, 'article', array('class' => 'span12 popover-help', 'data-original-title' => $model->getAttributeLabel('article'), 'data-content' => $model->getAttributeDescription('article'))); ?>
@@ -69,6 +76,10 @@
 				    		));
 				    ?>
 				    <?php echo $form->error($model, 'work_types'); ?>
+				</div>
+				
+				<div class="row-fluid control-group ">
+					<?php $this->widget('application.modules.product.widgets.ImagesPreviewsWidget', array('id' => $model->id))?>
 				</div>
 			    
 			    <?php
@@ -87,6 +98,8 @@
 			            'label'      => Yii::t('product', 'Сохранить Товар и продолжить'),
 			        )
 			    ); ?>
+			    
+			    
 			
 			<?php $this->endWidget(); ?>
 		</div>

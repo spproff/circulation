@@ -126,6 +126,13 @@ class AdminController extends YBackController
             $model->attributes = $_GET['Product'];
         $this->render('index', array('model' => $model));
     }
+    
+    public function actionParser($url){
+    	$parser = new AliParser();
+    	$res = $parser->parse($url);
+    	echo CJSON::encode($res);
+    	Yii::app()->end();
+    }
 
     /**
      * Возвращает модель по указанному идентификатору

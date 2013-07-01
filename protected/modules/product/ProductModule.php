@@ -5,6 +5,10 @@ class ProductModule extends YWebModule
 	
 	public $adminPageLinkNormalize = '/product/admin/index/';
 	
+	public $images_path = '/uploads/products/';
+	
+	public $parse_service_url = '/product/admin/parser/';
+	
 	public function getIcon()
     {
         return 'folder-open';
