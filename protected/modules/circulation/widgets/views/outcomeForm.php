@@ -1,5 +1,6 @@
-<h4>Форма расхода</h4>
+<h4 class='collapsed-form-header'>Форма расхода</h4>
 
+<div class='collapsed-form-body'>
 <?php
 $form = $this->beginWidget(
     'bootstrap.widgets.TbActiveForm', array(
@@ -39,3 +40,4 @@ $form = $this->beginWidget(
     ); ?>
 
 <?php $this->endWidget(); ?>
+</div>

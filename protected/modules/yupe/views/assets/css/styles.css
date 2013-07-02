@@ -145,3 +145,13 @@ pre .label{
     border: none;
     display: block;
 }
+
+.collapsed-form .collapsed-form-body {
+	display: none;
+}
+
+.collapsed-form .collapsed-form-header {
+	cursor: pointer;
+	display: inline;
+	border-bottom: 1px dashed #000;
+}

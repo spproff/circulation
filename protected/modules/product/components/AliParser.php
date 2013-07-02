@@ -14,8 +14,14 @@ class AliParser extends CApplicationComponent {
 		$article = $this->_getArticle();
 		$image_storage = new ImageStorage();
 		$res = $image_storage->setId($article)->uploadFile($image_src);
-		if (! $res && ! is_array(res)) {
-			return array('success' => false, 'message' => 'Error while upload image');
+		if (! $res ) {
+			return array('success' => false, 
+						 'message' => 'Error while upload image');
+		} else {
+			return array('success' => true, 
+						 'message' => 'Загрузка выполнена успешно',
+						 'article' => $article,
+			);
 		}
 		return $res;
 	}

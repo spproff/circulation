@@ -28,6 +28,10 @@ class ImageStorage extends CApplicationComponent {
 		$files = $this->_listFile($path);
 		if (! $files)
 			return false;
+		
+		foreach ($files as $key => $file) {
+			$files[$key] = $path . $file;
+		} 	
 			
 		$urls = $this->_filter($files);
 		
@@ -75,7 +79,8 @@ class ImageStorage extends CApplicationComponent {
 	
 	private function _saveFile($url) {
 		$file = md5(basename($url) . time());
-		$path = $this->_getPath() . $file;
+		$info = pathinfo($url);
+		$path = $this->_getPath() . $file . '.' . $info['extension'];
 		$content = file_get_contents($url);
 		$f = fopen( $path, "w" );
 		fwrite( $f, $content );

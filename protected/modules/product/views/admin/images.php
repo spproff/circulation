@@ -1,0 +1,1 @@
+<?php $this->widget('application.modules.product.widgets.ImagesPreviewsWidget', array('article' => $article))?>

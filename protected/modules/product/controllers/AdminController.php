@@ -64,12 +64,10 @@ class AdminController extends YBackController
     {
         $model = $this->loadModel($id);
 
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
         if (isset($_POST['Product'])) {
-            $model->attributes = $_POST['Product'];
 
+        	$model->attributes = $_POST['Product'];
+            
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     YFlashMessages::NOTICE_MESSAGE,
@@ -133,6 +131,11 @@ class AdminController extends YBackController
     	echo CJSON::encode($res);
     	Yii::app()->end();
     }
+    
+    public function actionImages($article) {
+    	$this->layout = false;
+    	$this->render('images', array('article'=>$article));
+    }
 
     /**
      * Возвращает модель по указанному идентификатору
@@ -144,7 +147,7 @@ class AdminController extends YBackController
      */
     public function loadModel($id)
     {
-        $model = Product::model()->findByPk($id);
+        $model = Product::model()->with('tag')->findByPk($id);
         if ($model === null)
             throw new CHttpException(404, Yii::t('product', 'Запрошенная страница не найдена.'));
         return $model;

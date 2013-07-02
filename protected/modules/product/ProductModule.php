@@ -9,6 +9,8 @@ class ProductModule extends YWebModule
 	
 	public $parse_service_url = '/product/admin/parser/';
 	
+	public $image_gallery_url = '/product/admin/images/';
+	
 	public function getIcon()
     {
         return 'folder-open';

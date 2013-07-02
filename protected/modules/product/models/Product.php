@@ -1,16 +1,5 @@
 <?php
 
-/**
- * This is the model class for table "{{product}}".
- *
- * The followings are the available columns in table '{{product}}':
- * @property integer $id
- * @property string $label
- * @property string $description
- * @property string $images
- * @property integer $unit
- * @property string $url
- */
 class Product extends YModel
 {
 	public $tags;
@@ -20,28 +9,18 @@ class Product extends YModel
 		return parent::model($className);
 	}
 
-	/**
-	 * @return string the associated database table name
-	 */
 	public function tableName()
 	{
 		return '{{product}}';
 	}
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
 	public function rules()
 	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
 		return array(
 			array('unit', 'numerical', 'integerOnly'=>true),
 			array('label', 'length', 'max'=>255),
 			array('article', 'length', 'max'=>64),
 			array('description, url, tags', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
 			array('id, label, description, unit, url, article', 'safe', 'on'=>'search'),
 		);
 	}
@@ -63,9 +42,6 @@ class Product extends YModel
 		);
 	}
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
 	public function attributeLabels()
 	{
 		return array(
@@ -78,17 +54,9 @@ class Product extends YModel
 		);
 	}
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
-
 		$criteria=new CDbCriteria;
-
 		$criteria->compare('id',$this->id);
 		$criteria->compare('label',$this->label,true);
 		$criteria->compare('description',$this->description,true);
@@ -115,11 +83,22 @@ class Product extends YModel
 			$this->beforeRelatedSave();
 			$criteria = new CDbCriteria();
 			$criteria->addInCondition('id', $this->tags);
-			$tags = Tag::model()->findAll($criteria);
-			$this->tags = $tags;
+			$tag = Tag::model()->findAll($criteria);
+			$this->tag = $tag;
 			$this->withRelated->save($runValidation, array('tag'));
 		} else {
 			parent::save($runValidation,$attributes);
 		}
+	}
+	
+	public function afterFind() {
+		$tags = array();
+		if ($this->tag) {
+			foreach ($this->tag as $item) {
+				$tags[] = $item->id;
+			}
+		}
+		$this->tags = $tags;
+		parent::afterFind();
 	}
 }
