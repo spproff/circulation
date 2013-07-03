@@ -12,7 +12,7 @@ class IncomeController extends YBackController
 
         if (isset($_POST['Income'])) {
             $model->attributes = $_POST['Income'];
-
+			Yii::app()->session['exchange'] = $model->exchange;
             if ($model->save()) {
                 Yii::app()->user->setFlash(
                     YFlashMessages::NOTICE_MESSAGE,
