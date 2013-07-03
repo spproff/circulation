@@ -100,7 +100,7 @@
 			<?php
 			    $this->widget('application.modules.circulation.widgets.IncomeTableWidget',array('product_id' => $model->id)); 
 			?>
-			
+			<hr/>
 			<div class='collapsed-form'>
 			<?php
 			    $this->widget('application.modules.circulation.widgets.OutcomeFormWidget',array('product_id' => $model->id)); 

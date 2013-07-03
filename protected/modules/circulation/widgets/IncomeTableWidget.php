@@ -10,6 +10,7 @@ class IncomeTableWidget extends YWidget
     		'Income', array(
     		'criteria' => array(
                 	'condition' => 'product_id=' . $this->product_id,
+    				'with' => 'supplier',
             	),
             )
     	);
