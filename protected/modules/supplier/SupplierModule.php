@@ -8,6 +8,7 @@ class SupplierModule extends YWebModule
 		// you may place code here to customize the module or the application
 
 		// import the module-level models and components
+		parent::init();
 		$this->setImport(array(
 			'supplier.models.*',
 			'supplier.components.*',
