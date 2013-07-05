@@ -20,6 +20,8 @@ class Product extends YModel
 			array('unit', 'numerical', 'integerOnly'=>true),
 			array('label', 'length', 'max'=>255),
 			array('article', 'length', 'max'=>64),
+			array('active, booking', 'boolean', 'allowEmpty'=>false),
+			array('price', 'type', 'type'=>'float'),
 			array('description, url, tags', 'safe'),
 			array('id, label, description, unit, url, article', 'safe', 'on'=>'search'),
 		);
@@ -51,6 +53,9 @@ class Product extends YModel
 			'unit' => 'Unit',
 			'article' => 'Article',
 			'url' => 'Url',
+			'active' => 'Active',
+			'booking' => 'Booking',
+			'price' => 'Price',
 		);
 	}
 
