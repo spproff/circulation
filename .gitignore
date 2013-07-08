@@ -3,7 +3,6 @@
 *.settings
 .project
 *db.php
-uploads/
 *.komodoproject
 /nbproject/private/
 /.komodotools/
