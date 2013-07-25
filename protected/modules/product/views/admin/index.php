@@ -59,6 +59,9 @@ $this->renderPartial('_search', array('model' => $model));
     'type'         => 'condensed',
     'dataProvider' => $model->search(),
     'filter'       => $model,
+ 	'afterAjaxUpdate' => "js:function() {
+			$('.iload').fancybox();
+		}",
     'columns'      => array(
         'id',
  		'article',
