@@ -73,7 +73,9 @@ $this->renderPartial('_search', array('model' => $model));
             'type' => 'html', 'value' => 'ImageColumnAdapter::get($data->article)'
         ),
         array(
-            'type' => 'html', 'value' => 'TagColumnAdapter::get($data->tag)'
+        	'name' => 'Tags',
+            'type' => 'html', 'value' => 'TagColumnAdapter::get($data->tag)',
+        	'filter' => CHtml::activeDropDownList($model, 'tag', CHtml::listData(Tag::model()->findAll(), 'id', 'label')), 
         ),
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
