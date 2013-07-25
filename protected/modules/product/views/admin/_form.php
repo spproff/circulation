@@ -74,8 +74,8 @@
 			        </div>
 			        
 			    </div>
-			    
-			    <div class="row-fluid control-group">
+				
+				<div id="images-gallery" class="row-fluid control-group">
 			    	<?php $this->widget('application.modules.product.widgets.ImagesPreviewsWidget', array('article' => $model->article));?>
 			    </div>
 			    

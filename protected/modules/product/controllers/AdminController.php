@@ -118,8 +118,20 @@ class AdminController extends YBackController
      */
     public function actionIndex()
     {
+        Yii::app()->clientScript->registerScriptFile( '/web/vendor/jquery.fancybox/fancybox/jquery.fancybox-1.3.4.pack.js');
+        Yii::app()->clientScript->registerCssFile( '/web/vendor/jquery.fancybox/fancybox/jquery.fancybox-1.3.4.css');
+
+        $script = "$(function(){
+                    $('.iload').fancybox();
+                  });"
+        ;    
+        Yii::app()->getClientScript()->registerScript(__CLASS__, $script);
+
         $model = new Product('search');
         $model->unsetAttributes(); // clear any default values
+        if (! isset($_GET['Product_sort'])) {
+            $_GET['Product_sort'] = 'id.desc';
+        }
         if (isset($_GET['Product']))
             $model->attributes = $_GET['Product'];
         $this->render('index', array('model' => $model));

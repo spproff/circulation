@@ -60,9 +60,15 @@ $this->renderPartial('_search', array('model' => $model));
     'dataProvider' => $model->search(),
     'filter'       => $model,
     'columns'      => array(
-        //'id',
+        'id',
  		'article',
         'label',
+        'price',        
+        'active',
+        'booking',
+        array(
+            'type' => 'html', 'value' => 'ImageColumnAdapter::get($data->article)'
+        ),
         //'description',
         //'unit',
         /*
