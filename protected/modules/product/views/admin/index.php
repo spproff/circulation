@@ -69,11 +69,9 @@ $this->renderPartial('_search', array('model' => $model));
         array(
             'type' => 'html', 'value' => 'ImageColumnAdapter::get($data->article)'
         ),
-        //'description',
-        //'unit',
-        /*
-        'url',
-        */
+        array(
+            'type' => 'html', 'value' => 'TagColumnAdapter::get($data->tag)'
+        ),
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
         ),

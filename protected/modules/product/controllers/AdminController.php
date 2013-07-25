@@ -134,7 +134,7 @@ class AdminController extends YBackController
         }
         if (isset($_GET['Product']))
             $model->attributes = $_GET['Product'];
-        $this->render('index', array('model' => $model));
+        $this->render('index', array('model' => $model->with('tag')));
     }
     
     public function actionParser($url){
