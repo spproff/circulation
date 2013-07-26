@@ -90,9 +90,9 @@ class Product extends YModel
 			$criteria->addInCondition('id', $this->tags);
 			$tag = Tag::model()->findAll($criteria);
 			$this->tag = $tag;
-			$this->withRelated->save($runValidation, array('tag'));
+			return $this->withRelated->save($runValidation, array('tag'));
 		} else {
-			parent::save($runValidation,$attributes);
+			return parent::save($runValidation,$attributes);
 		}
 	}
 	

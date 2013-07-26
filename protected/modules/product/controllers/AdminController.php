@@ -63,12 +63,13 @@ class AdminController extends YBackController
     public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
-
+		
         if (isset($_POST['Product'])) {
 
         	$model->attributes = $_POST['Product'];
             
             if ($model->save()) {
+            	
                 Yii::app()->user->setFlash(
                     YFlashMessages::NOTICE_MESSAGE,
                     Yii::t('product', 'Запись обновлена!')

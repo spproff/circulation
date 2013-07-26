@@ -7,6 +7,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
     	'amount', 
 		'exchange',
         'price', 
+		array(
+            'class'=>'CButtonColumn',
+			'template'=>'{delete}{update}',
+			'updateButtonUrl' => 'Yii::app()->controller->createUrl("/circulation/income/update",array("id"=>$data->primaryKey))',
+			'deleteButtonUrl' => 'Yii::app()->controller->createUrl("/circulation/income/delete",array("id"=>$data->primaryKey))'
+        ),
     ),
 ));
 ?>

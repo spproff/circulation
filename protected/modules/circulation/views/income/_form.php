@@ -56,7 +56,7 @@ $form = $this->beginWidget(
     $this->widget(
         'bootstrap.widgets.TbButton', array(
             'buttonType' => 'submit',
-            'htmlOptions'=> array('name' => 'submit-type', 'value' => 'index'),
+            'htmlOptions'=> array('name' => 'submit-type', 'value' => '/product/admin/update/' . $model->product_id),
             'label'      => Yii::t('circulation', 'Сохранить Приход и продолжить'),
         )
     ); ?>
