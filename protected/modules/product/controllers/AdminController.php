@@ -133,9 +133,10 @@ class AdminController extends YBackController
         if (! isset($_GET['Product_sort'])) {
             $_GET['Product_sort'] = 'id.desc';
         }
-        if (isset($_GET['Product']))
+        if (isset($_GET['Product'])) {
             $model->attributes = $_GET['Product'];
-        $this->render('index', array('model' => $model->with('tag')));
+        }
+        $this->render('index', array('model' => $model));
     }
     
     public function actionParser($url){

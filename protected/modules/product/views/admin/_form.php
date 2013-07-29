@@ -62,15 +62,15 @@
 				 	<div class='span4'>
 				 	
 				 		<?php echo $form->textFieldRow($model, 'price', array('class' => 'span12 popover-help', 'data-original-title' => $model->getAttributeLabel('price'), 'data-content' => $model->getAttributeDescription('price'))); ?>
-				 		<br/>
-				 		<br/>
+				 		
+				 		<?php echo $form->textFieldRow($model, 'weight', array('class' => 'span12 popover-help', 'data-original-title' => $model->getAttributeLabel('weight'), 'data-content' => $model->getAttributeDescription('weight'))); ?>
 						<?php echo $form->checkBoxRow($model, 'active', array('class' => 'popover-help', 'data-original-title' => $model->getAttributeLabel('active'), 'data-content' => $model->getAttributeDescription('active'))); ?>
 						<?php echo $form->checkBoxRow($model, 'booking', array('class' => 'popover-help', 'data-original-title' => $model->getAttributeLabel('booking'), 'data-content' => $model->getAttributeDescription('booking'))); ?>
 						
 					</div>
 					
 					<div class='span8'>
-			        	<?php echo $form->textAreaRow($model, 'description', array('class' => 'span12 popover-help', 'rows' => 5, 'cols' => 50, 'data-original-title' => $model->getAttributeLabel('description'), 'data-content' => $model->getAttributeDescription('description'))); ?>
+			        	<?php echo $form->textAreaRow($model, 'description', array('class' => 'span12 popover-help', 'rows' => 7, 'cols' => 50, 'data-original-title' => $model->getAttributeLabel('description'), 'data-content' => $model->getAttributeDescription('description'))); ?>
 			        </div>
 			        
 			    </div>

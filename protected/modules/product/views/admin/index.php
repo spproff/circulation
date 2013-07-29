@@ -69,6 +69,7 @@ $this->renderPartial('_search', array('model' => $model));
         'price',        
         'active',
         'booking',
+ 		'weight',
         array(
             'type' => 'html', 'value' => 'ImageColumnAdapter::get($data->article)'
         ),

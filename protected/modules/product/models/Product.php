@@ -17,13 +17,13 @@ class Product extends YModel
 	public function rules()
 	{
 		return array(
-			array('unit', 'numerical', 'integerOnly'=>true),
+			array('unit, weight', 'numerical', 'integerOnly'=>true),
 			array('label', 'length', 'max'=>255),
 			array('article', 'length', 'max'=>64),
 			array('active, booking', 'boolean', 'allowEmpty'=>false),
 			array('price', 'type', 'type'=>'float'),
 			array('description, url, tags', 'safe'),
-			array('id, label, description, unit, url, article', 'safe', 'on'=>'search'),
+			array('id, label, description, unit, url, article, weight', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,6 +56,7 @@ class Product extends YModel
 			'active' => 'Active',
 			'booking' => 'Booking',
 			'price' => 'Price',
+			'weight' => 'Weight'
 		);
 	}
 
@@ -67,8 +68,14 @@ class Product extends YModel
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('unit',$this->unit);
 		$criteria->compare('article',$this->article);
+		$criteria->compare('weight',$this->weight);
 		$criteria->compare('url',$this->url,true);
-
+		if (isset($_GET['Product']['tag']) && $_GET['Product']['tag']) {
+			$tag = $_GET['Product']['tag'];
+			$criteria->with = array('tag');
+			$criteria->together = true;
+			$criteria->addInCondition('tag.id', array($tag));
+		}
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
